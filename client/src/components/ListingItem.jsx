@@ -32,3 +32,33 @@ export default function ListingItem({ listing }) {
         </div>
     )
 }
+
+import PropTypes from 'prop-types';
+
+ListingItem.propTypes = {
+    // listing prop is an object with a specific shape
+    listing: PropTypes.shape({
+        // _id is a string and is required
+        _id: PropTypes.string.isRequired,
+        // name is a string and is required
+        name: PropTypes.string.isRequired,
+        // address is a string and is required
+        address: PropTypes.string.isRequired,
+        // description is a string
+        description: PropTypes.string,
+        // offer is a bool
+        offer: PropTypes.bool,
+        // discountPrice is a number
+        discountPrice: PropTypes.number,
+        // regularPrice is a number and is required
+        regularPrice: PropTypes.number.isRequired,
+        // type is a string and is one of 'rent' or 'sale'
+        type: PropTypes.oneOf(['rent', 'sale']),
+        // bedrooms is a number and is required
+        bedrooms: PropTypes.number.isRequired,
+        // bathrooms is a number and is required
+        bathrooms: PropTypes.number.isRequired,
+        // imageUrls is an array of strings
+        imageUrls: PropTypes.arrayOf(PropTypes.string),
+    }).isRequired,
+};
